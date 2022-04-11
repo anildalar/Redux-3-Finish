@@ -1,9 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
+  //1. State
+
+  //2. FUnction defiantino
+  let changeFriend = (e)=>{
+      //alert("OKOKKOKOK");
+      props.b('abc','abhishek')
+  }
+
+  //3 return startement
   return (
     <div className="App">
+      {props.myStore}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -17,9 +28,26 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={(e)=>{ changeFriend(e)  }}>Click me </button>
       </header>
     </div>
   );
 }
+let mapStateToProps = (state)=>{ //state === store object
 
-export default App;
+    return {
+      myStore:state
+    };
+}
+
+let mapDispatchToProps = (dispatch)=>{
+
+  return {
+    //1. P:V
+    //2. Funcrtion
+    a:function(){ dispatch({type:'xyz',myfriend:'kiran'}) }, //Classic way
+    b:(action,data)=>{  dispatch({type:action,myfriend:data}) }, //Fat Arrow
+    c:function(){ dispatch({type:'def',myfriend:'ritik'}) }
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App);

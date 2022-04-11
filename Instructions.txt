@@ -1,0 +1,16 @@
+(Only For Redux tutorial)
+https://redux.js.org/
+
+For (ReactJS with Redux)
+https://react-redux.js.org/
+
+npm install react-redux
+
+connect fuction have 2 arguments
+
+mapStateToProps (states)
+mapDispatchToProps (dispatch)
+
+https://react-redux.js.org/tutorials/connect
+
+https://redux.js.org/tutorials/quick-start
